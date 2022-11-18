@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fanorona91G.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,12 +17,14 @@ using System.Windows.Shapes;
 namespace Fanorona91G
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainWindow.x
     /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
+            Nodo nodo = new Nodo();
+            nodo.ChildrenGenerate(1, 10);
             InitializeComponent();
         }
     }
