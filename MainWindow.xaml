@@ -5,8 +5,85 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fanorona91G"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+         Title="Fanorona" Height="600" MaxHeight="600"
+        MinHeight="600" MaxWidth="570" MinWidth="570" Width="570">
+    <Window.Resources>
+        <Style TargetType="Ellipse">
+            <Setter Property="Stroke" Value="Red" />
+            <Setter Property="StrokeThickness" Value="0"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Stroke" Value="DeepSkyBlue"/>
+                    <Setter Property="StrokeThickness" Value="3"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <DockPanel Background="#DEB887">
 
-    </Grid>
+        <Canvas >
+            <Rectangle Canvas.Left="50" Canvas.Top="50" Width="450" Height="380"
+                       Stroke="#8C4514"
+                       StrokeThickness="3"></Rectangle>
+            <Line StrokeThickness="3" Stroke="#8C4514"
+                  X1="50" X2="500" Y1="50" Y2="430"></Line>
+            <Line StrokeThickness="3" Stroke="#8C4514"
+                  X1="500" X2="50" Y1="50" Y2="430"></Line>
+            <Line StrokeThickness="3" Stroke="#8C4514"
+                  X1="50" X2="500" Y1="240" Y2="240"></Line>
+            <Line StrokeThickness="3" Stroke="#8C4514"
+                  X1="275" X2="275" Y1="50" Y2="430"></Line>
+            <Ellipse Width="40" Height="40" Fill="#8C4514" StrokeThickness="0" Canvas.Left="255" Canvas.Top="220"></Ellipse>
+
+            <Ellipse Width="80" Height="80" Fill="#000"  Canvas.Left="10" Canvas.Top="10">
+                <Ellipse.Effect>
+                    <DropShadowEffect BlurRadius="8" RenderingBias="Quality" Color="DarkGray" ShadowDepth="7" Direction="-50" />
+                </Ellipse.Effect>
+            </Ellipse>
+            <Ellipse Width="80" Height="80" Fill="#000"  Canvas.Left="235" Canvas.Top="10">
+                <Ellipse.Effect>
+                    <DropShadowEffect BlurRadius="8" RenderingBias="Quality" Color="DarkGray" ShadowDepth="7" Direction="-50" />
+                </Ellipse.Effect>
+            </Ellipse>
+            <Ellipse Width="80" Height="80" Fill="#000"  Canvas.Left="460" Canvas.Top="10">
+                <Ellipse.Effect>
+                    <DropShadowEffect BlurRadius="8" RenderingBias="Quality" Color="DarkGray" ShadowDepth="7" Direction="-50" />
+                </Ellipse.Effect>
+            </Ellipse>
+            <Ellipse Width="80" Height="80" Fill="#000"  Canvas.Left="10" Canvas.Top="200">
+                <Ellipse.Effect>
+                    <DropShadowEffect BlurRadius="8" RenderingBias="Quality" Color="DarkGray" ShadowDepth="7" Direction="-50" />
+                </Ellipse.Effect>
+            </Ellipse>
+
+            <Ellipse Width="80" Height="80" Fill="#FFFF"  Canvas.Left="10" Canvas.Top="390">
+                <Ellipse.Effect>
+                    <DropShadowEffect BlurRadius="8" RenderingBias="Quality" Color="DarkGray" ShadowDepth="7" Direction="-50" />
+                </Ellipse.Effect>
+            </Ellipse>
+            <Ellipse x:Name="ellipse" Width="80" Height="80" Fill="#FFFF"  Canvas.Left="235" Canvas.Top="390">
+                <Ellipse.Effect>
+                    <DropShadowEffect BlurRadius="8" RenderingBias="Quality" Color="DarkGray" ShadowDepth="7" Direction="-50" />
+                </Ellipse.Effect>
+            </Ellipse>
+            <Ellipse Width="80" Height="80" Fill="#FFFF"  Canvas.Left="460" Canvas.Top="390">
+                <Ellipse.Effect>
+                    <DropShadowEffect BlurRadius="8" RenderingBias="Quality" Color="DarkGray" ShadowDepth="7" Direction="-50" />
+                </Ellipse.Effect>
+            </Ellipse>
+            <Ellipse Width="80" Height="80" Fill="#FFFF"  Canvas.Left="460" Canvas.Top="200">
+                <Ellipse.Effect>
+                    <DropShadowEffect BlurRadius="8" RenderingBias="Quality" Color="DarkGray" ShadowDepth="7" Direction="-50" />
+                </Ellipse.Effect>
+            </Ellipse>
+        </Canvas>
+
+        <WrapPanel HorizontalAlignment="Center" Margin="0,500,0,0">
+            <Button x:Name="btnIniciar" Click="btnIniciar_Click" BorderBrush="White" BorderThickness="2" Padding="30,10" Background="Goldenrod" FontWeight="Black"
+                    FontSize="15" Foreground="White" Margin="10,0">Empezar nuevo juego</Button>
+
+            <Button x:Name="btnCerrar" Click="btnCerrar_Click"  BorderBrush="White" BorderThickness="2" Padding="30,10" Background="Goldenrod" FontWeight="Black"
+                    FontSize="15" Foreground="White" Margin="10,0">X Cerrar</Button>
+        </WrapPanel>
+    </DockPanel>
 </Window>
