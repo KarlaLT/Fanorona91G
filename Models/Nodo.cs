@@ -15,7 +15,7 @@ namespace Fanorona91G.Models
         public int Blacks { get; set; } = 4;
         public int Turn { get; set; } = 1;
         private bool maximizing = false;
-        private bool isFirstTime = true;
+      //  private bool isFirstTime = true;
         private int openWhites;
         private int openBlacks;
 
@@ -911,7 +911,7 @@ namespace Fanorona91G.Models
                         Whites = Whites,
                         Blacks = Blacks,
                         State = new string(arrayState),
-                        isFirstTime = false
+                     //  isFirstTime = false
                     };
                     if (depth > 1 && !WinnerWhitesOrBlacks(Whites, Blacks))
                     {
