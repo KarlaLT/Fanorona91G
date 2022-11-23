@@ -15,17 +15,20 @@ namespace Fanorona91G.Models
         public int Blacks { get; set; } = 4;
         public int Turn { get; set; } = 1;
         private bool maximizing = false;
+        private bool isFirstTime = true;
         private int openWhites;
         private int openBlacks;
+
         //Matriz multidimensional
         private static readonly int[,] lines =
-new int[,] {
+                new int[,] {
                 //Matriz bidimensional de 3 filas y 3 columnas
                 //El numero 2 representa una ficha negra y el numero 1 represena una ficha blanca y el numero 0 es vacio.
-            { 2,2,2},
-{ 2,0,1},
-{ 1,1,1}
-};
+                { 2,2,2},
+                { 2,0,1},
+                { 1,1,1}
+                };
+
         public bool WinnerWhitesOrBlacks(int whites, int blacks)
         {
             if (whites == 0)
@@ -41,9 +44,36 @@ new int[,] {
 
         public void ChildrenGenerate(int turn, int depth)
         {
+
             Turn = turn;
             for (int i = 0; i < 9; i++)
             {
+                //if (State[i] == '0' && Children.Count <= 4)
+                //{
+                //    var arrayState = State.ToCharArray();
+                //     arrayState[i] = char.Parse(Turn.ToString());
+                //    Nodo son2 = new Nodo()
+                //    {
+                //        Whites = 4,
+                //        Blacks = 3,
+                //        State = "220211011",
+                //    };
+                //    Children.Add(son2);
+                //    Nodo son3 = new Nodo()
+                //    {
+                //        Whites = 4,
+                //        Blacks = 3,
+                //        State = "202211101",
+                //    };
+                //    Children.Add(son3);
+                //    Nodo son4 = new Nodo()
+                //    {
+                //        Whites = 4,
+                //        Blacks = 3,
+                //        State = "022211110",
+                //        isFirstTime = false
+                //    };
+                //}
                 if (State[i] == '0')
                 {
                     var arrayState = State.ToCharArray();
@@ -52,11 +82,11 @@ new int[,] {
                     {
                         //Ver si de donde esta puede moverse a la posicion 0
                         if (arrayState[1] == char.Parse(Turn.ToString()) || arrayState[3] == char.Parse(Turn.ToString())
-|| arrayState[4] == char.Parse(Turn.ToString()))
+                                    || arrayState[4] == char.Parse(Turn.ToString()))
                         {
                             //Ver en que posicion estaba
                             int posicion = arrayState[1] == char.Parse(Turn.ToString()) ? 1 :
-arrayState[3] == char.Parse(Turn.ToString()) ? 3 : 4;
+                                arrayState[3] == char.Parse(Turn.ToString()) ? 3 : 4;
                             //Eliminacion de pieza por alejamiento 
                             if (posicion == 1)
                             {
@@ -127,11 +157,11 @@ arrayState[3] == char.Parse(Turn.ToString()) ? 3 : 4;
                     {
                         //Ver si de donde esta puede moverse a la posicion 0
                         if (arrayState[4] == char.Parse(Turn.ToString()) || arrayState[0] == char.Parse(Turn.ToString())
-|| arrayState[2] == char.Parse(Turn.ToString()))
+                                || arrayState[2] == char.Parse(Turn.ToString()))
                         {
                             //Ver en que posicion estaba
                             int posicion = arrayState[4] == char.Parse(Turn.ToString()) ? 4 :
-arrayState[0] == char.Parse(Turn.ToString()) ? 0 : 2;
+                                arrayState[0] == char.Parse(Turn.ToString()) ? 0 : 2;
                             //Eliminacion de pieza por alejamiento 
                             if (posicion == 4)
                             {
@@ -212,7 +242,7 @@ arrayState[0] == char.Parse(Turn.ToString()) ? 0 : 2;
                         {
                             //Ver en que posicion estaba
                             int posicion = arrayState[4] == char.Parse(Turn.ToString()) ? 4 :
-arrayState[1] == char.Parse(Turn.ToString()) ? 1 : 5;
+                                arrayState[1] == char.Parse(Turn.ToString()) ? 1 : 5;
                             //Eliminacion de pieza por alejamiento 
                             if (posicion == 4)
                             {
@@ -293,7 +323,7 @@ arrayState[1] == char.Parse(Turn.ToString()) ? 1 : 5;
                         {
                             //Ver en que posicion estaba
                             int posicion = arrayState[4] == char.Parse(Turn.ToString()) ? 4 :
-arrayState[0] == char.Parse(Turn.ToString()) ? 0 : 6;
+                                arrayState[0] == char.Parse(Turn.ToString()) ? 0 : 6;
                             //Eliminacion de pieza por alejamiento 
                             if (posicion == 4)
                             {
@@ -378,9 +408,9 @@ arrayState[0] == char.Parse(Turn.ToString()) ? 0 : 6;
                         {
                             //Ver en que posicion estaba
                             int posicion = arrayState[0] == char.Parse(Turn.ToString()) ? 0 : arrayState[1] == char.Parse(Turn.ToString())
-? 1 : arrayState[2] == char.Parse(Turn.ToString()) ? 2 : arrayState[3] == char.Parse(Turn.ToString()) ? 3 :
-arrayState[5] == char.Parse(Turn.ToString()) ? 5 :
-arrayState[6] == char.Parse(Turn.ToString()) ? 6 : arrayState[7] == char.Parse(Turn.ToString()) ? 7 : 8;
+                            ? 1 : arrayState[2] == char.Parse(Turn.ToString()) ? 2 : arrayState[3] == char.Parse(Turn.ToString()) ? 3 :
+                                arrayState[5] == char.Parse(Turn.ToString()) ? 5 :
+                            arrayState[6] == char.Parse(Turn.ToString()) ? 6 : arrayState[7] == char.Parse(Turn.ToString()) ? 7 : 8;
                             //Eliminacion de pieza por alejamiento 
                             if (posicion == 0)
                             {
@@ -565,7 +595,7 @@ arrayState[6] == char.Parse(Turn.ToString()) ? 6 : arrayState[7] == char.Parse(T
                         {
                             //Ver en que posicion estaba
                             int posicion = arrayState[4] == char.Parse(Turn.ToString()) ? 4 :
-arrayState[2] == char.Parse(Turn.ToString()) ? 2 : 8;
+                            arrayState[2] == char.Parse(Turn.ToString()) ? 2 : 8;
                             //Eliminacion de pieza por alejamiento 
                             if (posicion == 4)
                             {
@@ -645,7 +675,7 @@ arrayState[2] == char.Parse(Turn.ToString()) ? 2 : 8;
                         {
                             //Ver en que posicion estaba
                             int posicion = arrayState[7] == char.Parse(Turn.ToString()) ? 7 :
-arrayState[3] == char.Parse(Turn.ToString()) ? 3 : 4;
+                            arrayState[3] == char.Parse(Turn.ToString()) ? 3 : 4;
                             //Eliminacion de pieza por alejamiento 
                             if (posicion == 7)
                             {
@@ -725,7 +755,7 @@ arrayState[3] == char.Parse(Turn.ToString()) ? 3 : 4;
                         {
                             //Ver en que posicion estaba
                             int posicion = arrayState[4] == char.Parse(Turn.ToString()) ? 4 :
-arrayState[6] == char.Parse(Turn.ToString()) ? 6 : 8;
+                            arrayState[6] == char.Parse(Turn.ToString()) ? 6 : 8;
                             //Eliminacion de pieza por alejamiento 
                             if (posicion == 4)
                             {
@@ -805,7 +835,7 @@ arrayState[6] == char.Parse(Turn.ToString()) ? 6 : 8;
                         {
                             //Ver en que posicion estaba
                             int posicion = arrayState[7] == char.Parse(Turn.ToString()) ? 7 :
-arrayState[4] == char.Parse(Turn.ToString()) ? 4 : 5;
+                            arrayState[4] == char.Parse(Turn.ToString()) ? 4 : 5;
                             //Eliminacion de pieza por alejamiento 
                             if (posicion == 7)
                             {
@@ -880,13 +910,11 @@ arrayState[4] == char.Parse(Turn.ToString()) ? 4 : 5;
                     {
                         Whites = Whites,
                         Blacks = Blacks,
-                        State = new string(arrayState)
+                        State = new string(arrayState),
+                        isFirstTime = false
                     };
                     if (depth > 1 && !WinnerWhitesOrBlacks(Whites, Blacks))
                     {
-
-
-
                         MinMax(son, depth, !maximizing);
                         //1 es blancas y 2 negras
                         //ChangeTurn(Turn);

@@ -24,7 +24,7 @@ namespace Fanorona91G
         public MainWindow()
         {
             Nodo nodo = new Nodo();
-            nodo.ChildrenGenerate(1, 10);
+            nodo.ChildrenGenerate(1, 3);
             InitializeComponent();
         }
     }
